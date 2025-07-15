@@ -2,14 +2,14 @@ name: Generate Snake Animation
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 0 * * *" # every day at midnight UTC
   workflow_dispatch:
 
 jobs:
   generate:
     runs-on: ubuntu-latest
     environment:
-      name: github-pages   # <-- This is required for Pages deployment!
+      name: github-pages   # <-- This is the required fix!
     steps:
       - uses: actions/checkout@v4
       - uses: Platane/snk@v3
